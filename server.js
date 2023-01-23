@@ -36,8 +36,8 @@ app.post("/api/movies", (req,res) => {
 
 app.get("/api/movies", (req,res) => {
     db.getAllMovies(req.query.page, req.query.perPage)
-        .then((movies) => {
-            res.status(200).json(movies);
+        .then((Movie) => {
+            res.status(200).json(Movie);
         })
         .catch((err) => {
             res.status(400).json(err);
