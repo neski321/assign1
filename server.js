@@ -36,8 +36,8 @@ app.post("/api/movies", (req,res) => {
 
 app.get("/api/movies", (req,res) => {
     db.getAllMovies(req.query.page, req.query.perPage)
-        .then((Movie) => {
-            res.status(200).json(Movie);
+        .then((data) => {
+            res.status(200).json(data);
         })
         .catch((err) => {
             res.status(400).json(err);
@@ -46,8 +46,8 @@ app.get("/api/movies", (req,res) => {
 
 app.get("/api/movies/:id", (req,res) => {
     db.getMovieById(req.params.id)
-        .then((sales) => {
-            res.status(200).json(sales);
+        .then(() => {
+            res.status(200).json();
         })
         .catch((err) => {
             res.status(404).json(err);
