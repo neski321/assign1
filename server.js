@@ -26,8 +26,8 @@ app.get("/", (req, res)=> {res.json('API Listening')});
 
 app.post("/api/movies", (req,res) => {
     db.addNewMovie(req.body)
-    .then(() => {
-            res.status(201).json(`new movie successfully added`);
+    .then((data) => {
+            res.status(201).json(data);
         })
         .catch((err) => {
             res.status(400).json(err);
@@ -36,8 +36,8 @@ app.post("/api/movies", (req,res) => {
 
 app.get("/api/movies", (req,res) => {
     db.getAllMovies(req.query.page, req.query.perPage)
-        .then((movies) => {
-            res.status(200).json(movies);
+        .then((data) => {
+            res.status(200).json(data);
         })
         .catch((err) => {
             res.status(400).json(err);
@@ -46,8 +46,8 @@ app.get("/api/movies", (req,res) => {
 
 app.get("/api/movies/:id", (req,res) => {
     db.getMovieById(req.params.id)
-        .then(() => {
-            res.status(200).json();
+        .then((data) => {
+            res.status(200).json(data);
         })
         .catch((err) => {
             res.status(404).json(err);
