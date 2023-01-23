@@ -11,8 +11,6 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 
-app.get("/", (req, res)=> {res.json('API Listening')});
-
 const MoviesDB = require("./modules/moviesDB.js");
 const db = new MoviesDB();
 
@@ -23,6 +21,8 @@ db.initialize(process.env.MONGODB_CONN_STRING).then(()=>{
    }).catch((err)=>{
     console.log(err);
    });
+
+app.get("/", (req, res)=> {res.json('API Listening')});
 
 app.post("/api/movies", (req,res) => {
     db.addNewMovie(req.body)
@@ -36,8 +36,8 @@ app.post("/api/movies", (req,res) => {
 
 app.get("/api/movies", (req,res) => {
     db.getAllMovies(req.query.page, req.query.perPage)
-        .then((data) => {
-            res.status(200).json(data);
+        .then((movies) => {
+            res.status(200).json(movies);
         })
         .catch((err) => {
             res.status(400).json(err);
