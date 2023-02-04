@@ -47,15 +47,15 @@ app.post("/api/movies", (req,res) => {
 });
 
 app.get("/api/movies", (req,res) => {
-    if((!req.query.page || !req.query.perPage)) res.status(500).json({message: "Missing query parameters"})
-    else {
+   
         db.getAllMovies(req.query.page, req.query.perPage, req.query.title)
         .then((data) => {
             if(data.length === 0) res.status(204).json({message: "No data returned"});
             else res.status(201).json(data);
         })
-        .catch((err) => { res.status(500).json({error: err}) })
-    }
+        .catch((err) => {
+             res.status(500).json({error: err});
+             })
 });
 
 app.get("/api/movies/:id", (req,res) => {
