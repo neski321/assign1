@@ -53,6 +53,7 @@ app.get("/api/movies", (req,res) => {
             data.shift()
             data.shift()
             data.shift()
+            data.shift()
             if(data.length == 0) res.status(204).json({message: "No data returned"});
             else res.status(201).json(data);
         })
