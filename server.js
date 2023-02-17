@@ -49,8 +49,11 @@ app.post("/api/movies", (req,res) => {
 app.get("/api/movies", (req,res) => {
    
         db.getAllMovies(req.query.page, req.query.perPage, req.query.title)
-        .then((data) => {
-            if(data.length === 0) res.status(204).json({message: "No data returned"});
+        .then((data) => { 
+            data.shift()
+            data.shift()
+            data.shift()
+            if(data.length == 0) res.status(204).json({message: "No data returned"});
             else res.status(201).json(data);
         })
         .catch((err) => {
