@@ -54,12 +54,9 @@ app.get("/api/movies", (req,res) => {
             data.shift()
             data.shift()
             data.shift()
-            if(data.length == 0) res.status(204).json({message: "No data returned"});
-            else res.status(201).json(data);
-        })
-        .catch((err) => {
-             res.status(500).json({error: err});
-             })
+            console.log("Hello"); res.status(200).json(data);})
+            .catch((err)=>{ res.status(400).json({message:err.message});
+        })        
 });
 
 app.get("/api/movies/:id", (req,res) => {
