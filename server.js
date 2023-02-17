@@ -50,10 +50,7 @@ app.get("/api/movies", (req,res) => {
    
     db.getAllMovies(req.query.page, req.query.perPage, req.query.title)
         .then((data) => {
-            data.shift()
-            data.shift()
-            data.shift()
-            data.shift()
+            
             res.status(200).json(data);
         })
         .catch((err) => {
