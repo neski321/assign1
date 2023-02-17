@@ -48,15 +48,9 @@ app.post("/api/movies", (req,res) => {
 
 app.get("/api/movies", (req,res) => {
    
-        db.getAllMovies(req.query.page, req.query.perPage, req.query.title)
-        .then((data) => { 
-            data.shift()
-            data.shift()
-            data.shift()
-            data.shift()
-            console.log("Hello"); res.status(200).json(data);})
-            .catch((err)=>{ res.status(400).json({message:err.message});
-        })        
+    db.getAllMovies(req.query.page, req.query.perPage, req.query.title)
+    .then((data)=>{ console.log("Hello"); res.status(200).json(data);})
+    .catch((err)=>{ res.status(400).json({message:err.message});})
 });
 
 app.get("/api/movies/:id", (req,res) => {
