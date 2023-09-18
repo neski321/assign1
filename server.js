@@ -5,7 +5,7 @@
 * No part of this assignment has been copied manually or electronically from any other source
 * (including web sites) or distributed to other students.
 *
-* Name: Neskines Otieno Student ID: 118317205 Date:2023-01-22
+* Name: Neskines Otieno Date:2023-01-22
 * Cyclic Link: https://sleepy-erin-coral.cyclic.app/
 *
 ********************************************************************************/
